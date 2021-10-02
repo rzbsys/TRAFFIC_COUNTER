@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교통량 인식</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="close-screen">
+        <img src="{{url_for('static', filename='img/terminal.svg')}}" alt="제거 로딩" width="90px" style="filter: invert(0.5);">
+        <h1>종료 진행중</h1>
+        <h5 style="color: rgb(230, 230, 230);">종료시 자동으로 리다이렉트 됩니다.</h5>
+        <h5 style="color: rgb(230, 230, 230);" id="Close_time"></h5>
+
+    </div>
+    <img src="{{url_for('static', filename='img/settings.svg')}}" alt="설정버튼" , class="set-btn">
+    <div class="setting">
+        <div class="top-set"></div>
+        <div style="height: 10px;"></div>
+            <label class="rem">CONF</label><br>
+            <input type="text" placeholder="{{CONF}}" id="NUM" name="CONF"><br>
+            <button id="Set">설정</button><br>
+            <button id="Close">닫기</button>
+
+    </div>
+    <div class="load_back" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+        <h1><span class="t1">교통량</span> 인식</h1><h6 style="font-size: 20px; font-weight: 100; color: rgb(230, 230, 230);">By 전민국</h6>
+    </div>
+
+    <header oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+        <div class="title"><span class="t1">교통량</span> 인식</div>
+        <h2 class="position"></h2>
+    </header>
+    <div class="main">
+        <h1 style="color: rgb(230, 230, 230); text-align: center;" id="SelText">오른쪽 창에서 도로를 선택해 주세요.</h1>
+        <div id="CCTV-Box">
+            <video id="CCTV-Vid" loop autoplay src=""></video>
+            <div class="tooltip">
+                <h2 style="background-color: rgb(115, 65, 252); color: white; display: inline-block; font-size: 15px; padding: 3px 10px;">교통량 정보</h2>
+                <h4 style="margin-left: 10px; display: inline-block; font-weight: 300;" id="Time"></h4>
+                <div class="container-fluid" id="data-container"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="inform">
+        <div class="select" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+            {% for i, v in enumerate(loc_list) %}
+            <div class="recommend" data-name="{{v}}" data-id="{{get_id(v)['id']}}">
+                <h3>CCTV <span>{{i + 1}}</span></h3>
+                <h2>{{v}}</h2>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+
+        <div class="load load-r" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+            <img src="{{url_for('static', filename='img/alert.svg')}}" alt="load" width="60px">
+            <h2>대기중</h2>
+        </div>
+
+        <div class="pre load" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+            <h2 style="margin-top: -300px; font-weight: 600;">실시간 교통량 인식중</h2><br>
+            <div class="box exc_time">
+                <h2 style="background-color: rgb(115, 65, 252); color: white; display: block; font-size: 15px; padding: 3px 10px;">평균 요청 시간</h2>
+                <h1 style="color: rgb(30, 30, 30);" id="Exc_Time">대기중</h1>
+            </div><br>
+            <div class="box">
+                <h2 style="background-color: rgb(115, 65, 252); color: white; display: block; font-size: 15px; padding: 3px 10px;">남은 새로고침 시간</h2>
+                <h1 style="color: rgb(30, 30, 30);" id="Reload"></h1>
+            </div><br>
+            <div class="box">
+                <h2 style="background-color: rgb(115, 65, 252); color: white; display: block; font-size: 15px; padding: 3px 10px;">현재 상태</h2>
+                <h1 style="color: rgb(30, 30, 30);" id="Status"></h1>
+            </div><br>
+            <button id="Terminate">교통량 인식 종료</button>
+        </div>
+
+    </div>
+</body>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+
+</html>

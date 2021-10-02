@@ -1,0 +1,15 @@
+beautifulsoup4
+flask
+gunicorn
+torch
+opencv-python
+numpy
+pandas
+matplotlib
+Pillow
+PyYAML
+scipy
+torchvision
+tqdm
+seaborn
+easydict

@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body, html {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.main {
+    width: 80%;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    background-color: rgb(250, 250, 250);
+}
+
+.set-btn {
+    position: absolute;
+    width: 30px;
+    z-index: 99;
+    right: 20px;
+    top: 15px;
+    filter: invert(0.7);
+    cursor: pointer;
+}
+
+#Terminate {
+    width: 90%;
+    height: 40px;
+    color: rgb(115, 65, 252);
+    background-color: rgb(238, 232, 255);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    border: 0px;
+    transition: 0.5s;
+}
+
+#Terminate:hover {
+    background-color: red;
+    color: white;
+}
+
+
+.setting {
+    width: 150px;
+    height: 185px;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    right: 10px;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0px 0px 10px -8px black;
+}
+
+.rem {
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+#NUM {
+    border: 0px;
+    height: 30px;
+    background-color: rgb(243, 243, 243);
+    width: 80%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+}
+
+.close-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Set {
+    background-color: rgb(230, 230, 230);
+    border: 0px;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 10px;
+}
+
+#Close {
+    background-color: rgb(230, 230, 230);
+    border: 0px;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 10px;
+}
+
+body * {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#CCTV-Vid {
+    width: 80vw;
+    height: calc(100vh - 60px);
+    object-fit: fill;
+}
+
+.top-set {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(115, 65, 252);
+}
+
+.load {
+    text-align: center;
+    position: relative;
+    height: 122px;
+    top: 50%;
+    margin-top: -61px;
+}
+
+.load > img {
+    opacity: 0.3;
+    filter: invert(0.3);
+}
+
+.box {
+    width: 90%;
+    height: 80px;
+    position: relative;
+    left: 50%;
+    margin-left: -45%;
+    background-color: rgb(250, 250, 250);
+
+}
+
+.load > h2 {
+    font-size: 20px;
+    font-weight: 200;
+    color: rgb(201, 201, 201);
+}
+
+
+.first_load {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10000;
+    background-color: black;
+}
+
+header {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 60px;
+    background-color: rgb(235, 235, 235);
+}
+
+.title {
+    float: left;
+    height: 60px;
+    width: 20vw;
+    line-height: 60px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(115, 65, 252);
+}
+
+.CCTV-Box {
+    position: relative;
+}
+
+.tooltip {
+    transition: 0.5s;
+    padding: 10px 20px;
+    width: 500px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+
+.load_back {
+    width: 100vw;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.load_back > h1 {
+    color: rgb(115, 65, 252);
+}
+
+.t1 {
+    font-weight: 200 !important;
+    color: black !important;
+}
+.inform {
+    height: calc(100vh - 60px);
+    width: 20%;
+    position: relative;
+    float: right;
+    background-color: rgb(245, 245, 245);
+    overflow-y: scroll !important;
+    overflow-x: hidden;
+}
+
+.inform::-webkit-scrollbar{ 
+    width: 5px; 
+} 
+.inform::-webkit-scrollbar-thumb{
+     background-color: rgb(115, 65, 252);
+     border-radius: 10px; 
+} 
+.inform::-webkit-scrollbar-track{ 
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+
+.recommend {
+    width: 18vw;
+    word-break:break-all;
+    padding: 20px 1vw;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    height: 1px;
+    position: relative;
+    left: 50%;
+    margin-left: -45%;
+    background-color: rgb(230, 230, 230);
+    border: 0px;
+}
+
+.recommend > h2 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.recommend > h3 {
+    font-size: 15px;
+    background-color: rgb(115, 65, 252);
+    display: inline-block;
+    padding: 0.5px 10px;
+    color: white;
+    line-height: 22.6px;
+}
+
+.recommend > h3 > span {
+    font-weight: 300;
+}
+
+
+header > h2 {
+    display: inline-block;
+    position: relative;
+    line-height: 60px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+
+#Length, #Byte {
+    font-weight: 100;
+    font-size: 20px;
+}
+

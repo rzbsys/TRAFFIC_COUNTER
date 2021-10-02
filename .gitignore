@@ -1,0 +1,4 @@
+__pycache__
+static/vid/cache/*
+static/vid/processed/*
+datas/yolov5x.pt
