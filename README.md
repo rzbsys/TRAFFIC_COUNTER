@@ -1,3 +1,5 @@
+<h1>설치 방법</h1>
+
 <h1>이미지</h1>
 <img src="https://user-images.githubusercontent.com/75260489/135726640-bd389852-2bb9-40e6-9b9c-52d98fedb4d1.png" width="400"><img src="https://user-images.githubusercontent.com/75260489/135726767-bee035d9-d4ee-469e-b395-cb727241dec4.png" width="400">
 
@@ -7,9 +9,9 @@ track.py 파일에서 fourcc로 인자를 받지만, 코드 분석 결과 인코
 #Path<br/>
 Yolov5_DeepSort_Pytorch\track.py
 <br><br>#Before<br/>
-183 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
+180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
 <br><br>#After<br>
-183 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'avc1'), fps, (w, h))<br><br>
+180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'avc1'), fps, (w, h))<br><br>
 
 <b>track.py를 실행시킬 경우 Output으로 지정한 경로의 파일 전부가 사라집니다.<br/>
 따라서, 아래 경로에서 다음 줄을 주석 처리하거나 제거해주세요.</b><br/>
