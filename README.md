@@ -1,6 +1,10 @@
 <h1>설치 방법</h1>
+
 `git clone --recurse-submodules https://github.com/rzbsys/TRAFFIC_COUNTER.git`
 
+만약 바로 submodule을 불러오는 것을 까먹었다면 아래 코드를 입력해 주세요.
+
+`git submodule update --init`
 
 <h1>이미지</h1>
 <img src="https://user-images.githubusercontent.com/75260489/135726640-bd389852-2bb9-40e6-9b9c-52d98fedb4d1.png" width="400"><img src="https://user-images.githubusercontent.com/75260489/135726767-bee035d9-d4ee-469e-b395-cb727241dec4.png" width="400">
