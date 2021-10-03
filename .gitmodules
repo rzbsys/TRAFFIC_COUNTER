@@ -1,3 +1,7 @@
 [submodule "Yolov5_DeepSort_Pytorch"]
 	path = Yolov5_DeepSort_Pytorch
 	url = https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch
+
+[submodule "yolov5"]
+	path = Yolov5_DeepSort_Pytorch/yolov5
+	url = https://github.com/ultralytics/yolov5.git
