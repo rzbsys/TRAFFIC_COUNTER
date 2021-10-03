@@ -16,9 +16,8 @@ track.py 파일에서 fourcc로 인자를 받지만, 코드 분석 결과 인코
 #Path<br/>
 Yolov5_DeepSort_Pytorch\track.py
 <br><br>#Before<br/>
-180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
-
-<br><br>#After<br>
+180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))<br>
+<br>#After<br>
 180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'avc1'), fps, (w, h))<br><br>
 
 <b>track.py를 실행시킬 경우 Output으로 지정한 경로의 파일 전부가 사라집니다.<br/>
