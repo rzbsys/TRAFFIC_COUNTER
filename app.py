@@ -72,9 +72,9 @@ def f3():
     configs_text = '--output ../static/vid/processed/ --save-vid --save-txt --conf-thres %f --source %s --yolo_weights %s' % (CONF, '../' + (save_url), '../' + model_dir)    
     #COCO Datasets  
     configs_text += ' --classes 2 3 5 7'
-    #process = subprocess.Popen(['python', 'track.py'] + configs_text.split(' '), cwd='Yolov5_DeepSort_Pytorch', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=False)
-    #with process.stdout:
-    #    log_subprocess_output(process.stdout)
+    process = subprocess.Popen(['python', 'track.py'] + configs_text.split(' '), cwd='Yolov5_DeepSort_Pytorch', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=False)
+    with process.stdout:
+        log_subprocess_output(process.stdout)
     try:
         car_cnt = count_cnt('static/vid/processed/%s' % (id + '-' + file_len + '.txt'))
     except:
