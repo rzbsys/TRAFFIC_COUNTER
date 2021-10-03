@@ -116,14 +116,19 @@ function renewal() {
                 })
                     .catch(error => {
                         //alert('영상 재생 불가능');
+                        state = -1;
                     });
             }
             $('#SelText').hide();
             $('#CCTV-Box').fadeIn();
+            
             car_cnt.push(parseInt(res['cnt']));
+            var now_time = get_date() + ' ' + get_time();
+            time.push(now_time);
+            
             var series = chart.series[0],
-                shift = series.data.length > 20;
-            chart.series[0].addPoint([get_date() + ' ' + get_time(), res['cnt']], true, shift);
+            shift = series.data.length > 20;
+            chart.series[0].addPoint([now_time, res['cnt']], true, shift);
             state = 0;
             var End_Time = new Date();
             metime.push(End_Time - Start_Time);
@@ -244,4 +249,26 @@ var chart = new Highcharts.Chart({
 
 $('#Download').on('click', () => {
     location.href = '/download';
+});
+
+
+function s2ab(s) {
+    var buf = new ArrayBuffer(s.length);
+    var view = new Uint8Array(buf);
+    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+    return buf;
+}
+
+$('#Excel').on('click', () => {
+    var wb = XLSX.utils.book_new();
+    wb.SheetNames.push("sheet 1");
+
+    var input_data = [];
+    for (var i = 0; i < time.length; i++) {
+        input_data.push([time[i], car_cnt[i]]);
+    }
+    var ws = XLSX.utils.aoa_to_sheet(input_data);
+    wb.Sheets["sheet 1"] = ws;
+    var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Traffic-' + id + '.xlsx');
 });

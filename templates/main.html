@@ -78,15 +78,17 @@
                 <h1 style="color: rgb(30, 30, 30);" id="Status"></h1>
             </div><br>
             <button id="Terminate">교통량 인식 종료</button><br><br>
-            <button id="Download">파일 다운로드</button>
-
+            <button id="Download">파일 다운로드</button><br><br>
+            <button id="Excel">Excel 내보내기</button>
         </div>
 
     </div>
 </body>
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
 
 <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/xlsx.js')}}"></script>
+<script src="{{url_for('static', filename='js/FileServer.js')}}"></script>
+<script src="{{url_for('static', filename='js/highcharts.src.js')}}"></script>
 <script src="{{url_for('static', filename='js/script.js')}}"></script>
 
 </html>
