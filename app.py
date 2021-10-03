@@ -46,7 +46,10 @@ def f1():
 
 @app.route('/download', methods=['GET'])
 def zip_download():
-    os.remove('static/data.zip')
+    try:
+        os.remove('static/data.zip')
+    except:
+        print('Remove Fail')
     make_archive('static/vid', 'static/')
     return send_file('static/data.zip', mimetype='application/zip', attachment_filename='data.zip', as_attachment=True)
 
