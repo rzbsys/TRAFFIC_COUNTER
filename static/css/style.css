@@ -37,6 +37,18 @@ body, html {
     transition: 0.5s;
 }
 
+#Download {
+    width: 90%;
+    height: 40px;
+    color: rgb(115, 65, 252);
+    background-color: rgb(238, 232, 255);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    border: 0px;
+    transition: 0.5s;
+}
+
 #Terminate:hover {
     background-color: red;
     color: white;

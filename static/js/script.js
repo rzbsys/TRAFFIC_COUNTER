@@ -113,10 +113,9 @@ function renewal() {
             var playPromise = vid.play();
             if (playPromise !== undefined) {
                 playPromise.then(_ => {
-
                 })
                     .catch(error => {
-
+                        //alert('영상 재생 불가능');
                     });
             }
             $('#SelText').hide();
@@ -129,8 +128,7 @@ function renewal() {
             var End_Time = new Date();
             metime.push(End_Time - Start_Time);
             $('#Exc_Time').text((avg(metime) / 1000).toFixed(2) + '초');
-            $('#Close_time').text('약 ' + (avg(metime) / 1000).toFixed(2) + '초 소요됩니다.');
-            
+            $('#Close_time').text('약 ' + ((avg(metime) / 1000).toFixed(2) - (90 - Left_Time)) + '초 소요됩니다.');
         },
         error: (e) => {
             console.log(e);
@@ -241,4 +239,9 @@ var chart = new Highcharts.Chart({
         enabled: false
     }
 
+});
+
+
+$('#Download').on('click', () => {
+    location.href = '/download';
 });

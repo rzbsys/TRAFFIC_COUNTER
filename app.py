@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, url_for, Response, g
+from flask import Flask, render_template, request, url_for, Response, send_file
 from flask_cors import CORS
-import subprocess, requests, os
+import subprocess, requests, os, shutil
 from datas.location import get_full_loc, get_id
 from datas.download import download_vid_file
 
@@ -33,11 +33,21 @@ def download(url, file_name):
         response = requests.get(url)
         file.write(response.content)
 
+def make_archive(source, destination):
+    archive_from = os.path.dirname(source)
+    archive_to = os.path.basename(source.strip(os.sep))
+    shutil.make_archive('data', 'zip', archive_from, archive_to)
+    shutil.move('%s.%s'%('data', 'zip'), destination)
+
 @app.route('/')
 def f1():
     loc_list = get_full_loc()
     return render_template('main.html', loc_list=loc_list, enumerate=enumerate, get_id=get_id, CONF=CONF)
 
+@app.route('/download', methods=['GET'])
+def zip_download():
+    make_archive('static/vid', 'static/')
+    return send_file('static/data.zip', mimetype='application/zip', attachment_filename='data.zip', as_attachment=True)
 
 @app.route('/setting', methods=['POST'])
 def setting():
@@ -56,10 +66,11 @@ def f3():
     download(file, save_url)
     print('----- DeepSort Predict -----')
     configs_text = '--output ../static/vid/processed/ --save-vid --save-txt --conf-thres %f --source %s --yolo_weights %s' % (CONF, '../' + (save_url), '../' + model_dir)    
+    #COCO Datasets  
     configs_text += ' --classes 2 3 5 7'
-    process = subprocess.Popen(['python', 'track.py'] + configs_text.split(' '), cwd='Yolov5_DeepSort_Pytorch', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=False)
-    with process.stdout:
-        log_subprocess_output(process.stdout)
+    #process = subprocess.Popen(['python', 'track.py'] + configs_text.split(' '), cwd='Yolov5_DeepSort_Pytorch', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=False)
+    #with process.stdout:
+    #    log_subprocess_output(process.stdout)
     try:
         car_cnt = count_cnt('static/vid/processed/%s' % (id + '-' + file_len + '.txt'))
     except:

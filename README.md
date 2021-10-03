@@ -10,12 +10,14 @@
 <img src="https://user-images.githubusercontent.com/75260489/135726640-bd389852-2bb9-40e6-9b9c-52d98fedb4d1.png" width="400"><img src="https://user-images.githubusercontent.com/75260489/135726767-bee035d9-d4ee-469e-b395-cb727241dec4.png" width="400">
 
 <h1>주의사항</h1>
+
 <b>HTML에서 DeepSort를 통해 만든 영상을 재생하기 위해서는 비디오의 인코딩 방식을 바꾸어 주어야 합니다.<br/>
 track.py 파일에서 fourcc로 인자를 받지만, 코드 분석 결과 인코딩 방식은 고정되어있는 것으로 확인되었습니다.(2021년 9월) 따라서, 아래 경로에서 인코딩 방식을 변경해 주어야 코드가 정상적으로 동작합니다.</b><br><br>
 #Path<br/>
 Yolov5_DeepSort_Pytorch\track.py
 <br><br>#Before<br/>
 180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
+
 <br><br>#After<br>
 180 | vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'avc1'), fps, (w, h))<br><br>
 
