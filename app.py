@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, url_for, Response, send_file
+from flask import Flask, render_template, request, url_for, Response, send_file, after_this_request
 from flask_cors import CORS
-import subprocess, requests, os, shutil
+import subprocess, requests, os, shutil, time
 from datas.location import get_full_loc, get_id
 from datas.download import download_vid_file
 
@@ -46,6 +46,7 @@ def f1():
 
 @app.route('/download', methods=['GET'])
 def zip_download():
+    os.remove('static/data.zip')
     make_archive('static/vid', 'static/')
     return send_file('static/data.zip', mimetype='application/zip', attachment_filename='data.zip', as_attachment=True)
 
